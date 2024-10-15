@@ -10,7 +10,7 @@ namespace ego_planner
   }
   void EGOReplanFSM::init(ros::NodeHandle &nh)
   {
-    current_wp_ = 0;
+    current_wp_ = 0;    
     exec_state_ = FSM_EXEC_STATE::INIT;
     have_target_ = false;
     have_odom_ = false;
