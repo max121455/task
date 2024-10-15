@@ -1,0 +1,41 @@
+# rectangle formation yaml
+# global goal setting
+global_goal:
+#rviz给点-队形中心点
+  swarm_central_pos: {x: 0.0, y: 0.0, z: 1.0}
+#膨胀系数越大队形越大
+  swarm_scale : 2.0
+#每个点的相对中心点的位置偏移
+  relative_pos_0 : {x: 0.0, y: 0.0, z: 0.0}
+  relative_pos_1 : {x: 1.7321, y: -1.0, z: 0.0}
+  relative_pos_2 : {x: 0.0, y: -2.0, z: 0.0}
+  relative_pos_3 : {x: -1.7321, y: -1.0, z: 0.0} 
+  relative_pos_4 : {x: -1.7321, y: 1.0, z: 0.0}
+  relative_pos_5 : {x: 0.0, y: 2.0, z: 0.0}
+  relative_pos_6 : {x: 1.7321, y: 1.0, z: 0.0} 
+  # relative_pos_6 : {x: 0, y: 0, z: 0.0} 
+
+# map_size_x          : 70.0
+# map_size_y          : 30.0
+# map_size_z          : 3.0
+optimization:
+  formation_type      : 1
+  #调整障碍物避免在总cost函数中的权重系数-增大该值可以增强避障效果
+  weight_obstacle     : 50000.0
+  #集群避障权重系数-增大会导致集群间避障效果增强
+  weight_swarm        : 50000.0
+  #速度限制权重系数，增大会导致速度限制更加严格
+  weight_feasibility  : 10000.0
+  #控制点间距权重系数，增大导致控制点更加均匀，轨迹更加平滑
+  weight_sqrvariance  : 10000.0
+  #飞行时间权重，增大会导致优化算法注重缩短飞行时间
+  weight_time         : 80.0
+  #队形维持cost权重，值越大越容易维持队形
+  weight_formation    : 15000.0
+  #轨迹与障碍物之间应该保持的最小安全距离
+  obstacle_clearance  : 0.5
+  #集群间最小安全距离
+  swarm_clearance     : 0.5
+
+fsm:
+  replan_trajectory_time : 0.1    # s, the max time of replanning trajectory
