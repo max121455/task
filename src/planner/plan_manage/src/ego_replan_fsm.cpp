@@ -797,12 +797,10 @@ namespace ego_planner
     if (have_local_traj_ && use_formation)
     {
       desired_start_time = ros::Time::now().toSec() + replan_trajectory_time_;
-      desired_start_pt=odom_pos_;
-      desired_start_vel=odom_vel_;
-      // desired_start_pt =
-      //     planner_manager_->traj_.local_traj.traj.getPos(desired_start_time - planner_manager_->traj_.local_traj.start_time);
-      // desired_start_vel =
-      //     planner_manager_->traj_.local_traj.traj.getVel(desired_start_time - planner_manager_->traj_.local_traj.start_time);
+      desired_start_pt =
+          planner_manager_->traj_.local_traj.traj.getPos(desired_start_time - planner_manager_->traj_.local_traj.start_time);
+      desired_start_vel =
+          planner_manager_->traj_.local_traj.traj.getVel(desired_start_time - planner_manager_->traj_.local_traj.start_time);
       desired_start_acc =
           planner_manager_->traj_.local_traj.traj.getAcc(desired_start_time - planner_manager_->traj_.local_traj.start_time);
     }
